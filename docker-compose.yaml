@@ -1,0 +1,9 @@
+version: '3.7'
+
+services:
+  rpm-builder-sbx:
+    command: sleep 1h
+    build: redhat
+    image: taylorm/sbx-react-ui
+    volumes:
+    - .:/src/
