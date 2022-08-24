@@ -1,3 +1,5 @@
+#!/bin/bash
+
 docker-compose build
 docker rm --force sbx-react-ui-c1
 docker run --detach --name sbx-react-ui-c1 --rm -ti taylorm/sbx-react-ui
