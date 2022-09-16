@@ -4,6 +4,12 @@ services:
   rpm-builder-sbx:
     command: sleep 1h
     build: redhat
-    image: taylorm/sbx-react-ui
+    image: taylorm/sbx-react-ui-rpm
     volumes:
     - .:/src/
+  deb-builder-sbx:
+    command: sleep 1h
+    build: debian
+    image: taylorm/sbx-react-ui-deb
+    volumes:
+    - .:/tmp/
