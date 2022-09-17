@@ -1,32 +1,35 @@
----
 apiVersion: batch/v1
 kind: Job
 metadata:
   name: rpmjob
 spec:
+  ttlSecondsAfterFinished: 20
   template:
     metadata:
       name: rpmjob
     spec:
       containers:
-        - name: rpmjob
-          image: rpm
-          command: ["./make_react_webui_rpm.sh"]
-#          command: ['perl', '-Mbignum=bpi', '-wle', 'print bpi(10)']
+      - name: rpmjob
+        image: rpm
+        command:
+        - ./make_react_webui_rpm.sh
       restartPolicy: Never
+  backoffLimit: 4
 ---
 apiVersion: batch/v1
 kind: Job
 metadata:
   name: debjob
 spec:
+  ttlSecondsAfterFinished: 20
   template:
     metadata:
       name: debjob
     spec:
       containers:
-        - name: debjob
-          image: deb
-          command: ["./make_react_webui_deb.sh"]
-#          command: ['perl', '-Mbignum=bpi', '-wle', 'print bpi(10)']
+      - name: debjob
+        image: deb
+        command:
+        - ./make_react_webui_deb.sh
       restartPolicy: Never
+  backoffLimit: 4
