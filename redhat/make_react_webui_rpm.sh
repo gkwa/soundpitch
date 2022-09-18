@@ -20,10 +20,6 @@ if [ ! -e "${HTMLDIR}" ]; then
     mkdir -p "${HTMLDIR}"
 fi
 
-if [ ! -e ~/rpmbuild ]; then
-    rpmdev-setuptree
-fi
-
 mkdir -p "${DIST_DIR}"/var/www/html/sbuiauth/
 cp "${LGN_DIST}"/* "${DIST_DIR}"/var/www/html/sbuiauth/
 

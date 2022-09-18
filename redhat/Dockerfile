@@ -5,6 +5,7 @@ WORKDIR /src
 RUN yum -y install \
   bash \
   coreutils \
+  curl \
   diffutils \
   gcc \
   git \
@@ -17,6 +18,9 @@ RUN yum -y install \
   rpmdevtools \
   rpmlint
 RUN pip3 install bump2version
+
+RUN curl -sLo /tmp/ripgrep.sh https://gist.githubusercontent.com/TaylorMonacelli/518fc257340d486a2b403b490f535bcf/raw/aa7dae078c0dad66f84349a491fea44ab6bb1a03/ripgrep_linux.sh
+RUN bash /tmp/ripgrep.sh
 
 RUN rpmdev-setuptree
 
