@@ -53,7 +53,7 @@ if [ -e /var/www/html/index.html ]; then
 	DATET=$(date +%y%m%d_%H%M)
 	mv /var/www/html/index.html /var/www/html/index.${DATET}.html
 fi
-cp -p /var/www/html/index.react.html /var/www/html/index.html
+# cp -p /var/www/html/index.react.html /var/www/html/index.html
 
 
 %preun

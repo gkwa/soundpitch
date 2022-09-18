@@ -1,16 +1,12 @@
 #!/bin/sh
 
 TMP_GIT_REP=/tmp/streambox-templates-app
-
-if [ ! -d ${TMP_GIT_REP} ]; then
-    git clone --depth 1 https://github.com/djklu31/streambox-templates-app ${TMP_GIT_REP}
+if [ ! -d "${TMP_GIT_REP}" ]; then
+    git clone --depth 1 https://github.com/djklu31/streambox-templates-app "${TMP_GIT_REP}"
 fi
 
-#PWD0=$(pwd)
 TMPDIR=$(mktemp -d)
 HTMLDIR=${TMPDIR}/
-
-# pushd .
 
 if [ ! -e "${HTMLDIR}" ]; then
     mkdir -p "${HTMLDIR}"
@@ -22,16 +18,16 @@ fi
 
 cp -pr ${TMP_GIT_REP}/dist/images "${HTMLDIR}"
 cp -pr ${TMP_GIT_REP}/dist/assets "${HTMLDIR}"
-cp -p ${TMP_GIT_REP}/dist/index.html "${HTMLDIR}/index.react.html"
+#cp -p ${TMP_GIT_REP}/dist/index.html "${HTMLDIR}/index.react.html"
 
 cd "${HTMLDIR}" || exit
-tar cvfz ~/rpmbuild/SOURCES/streambox-react-webui.tgz *
+tar cvfz ~/rpmbuild/SOURCES/streambox-react-webui.tgz ./*
+
+cd /tmp || exit
 
 if [ -d "${TMPDIR}" ]; then
     rm -rf "${TMPDIR}"
 fi
-
-cd "${PWD0}" || exit
 
 if [ -e ~/rpmbuild/SPECS/reactwebui.spec ]; then
     rpmbuild -bb ~/rpmbuild/SPECS/reactwebui.spec
