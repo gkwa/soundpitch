@@ -1,8 +1,17 @@
 #!/bin/sh
 
-TMP_GIT_REP=/tmp/streambox-templates-app
+cd /tmp/ || exit
+
+DIST_DIR=$(mktemp -d)
+LGN_DIST="${DIST_DIR}"/sbphplogin-reactapp-main
+TPL_DIST="${DIST_DIR}"/streambox-templates-app
+
 if [ ! -d "${TMP_GIT_REP}" ]; then
-    git clone --depth 1 https://github.com/djklu31/streambox-templates-app "${TMP_GIT_REP}"
+    git clone --depth 1 https://github.com/djklu31/streambox-templates-app "${TPL_DIST}"
+fi
+
+if [ ! -d "${TMP_LGN_DIST}" ]; then
+    git clone --depth 1 https://github.com/djklu31/sbphplogin-reactapp.git "${LGN_DIST}"
 fi
 
 TMPDIR=$(mktemp -d)
@@ -15,6 +24,9 @@ fi
 if [ ! -e ~/rpmbuild ]; then
     rpmdev-setuptree
 fi
+
+mkdir -p "${DIST_DIR}"/var/www/html/sbuiauth/
+cp "${LGN_DIST}"/* "${DIST_DIR}"/var/www/sbuiauth/
 
 cp -pr ${TMP_GIT_REP}/dist/images "${HTMLDIR}"
 cp -pr ${TMP_GIT_REP}/dist/assets "${HTMLDIR}"
