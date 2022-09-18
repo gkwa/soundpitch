@@ -8,7 +8,8 @@ LGN_DIST="${SCRATCH_DIR}"/sbphplogin-reactapp-main
 TPL_DIST="${SCRATCH_DIR}"/streambox-templates-app
 
 if [ ! -d "${TMP_GIT_REP}" ]; then
-    git clone --depth 1 https://github.com/djklu31/streambox-templates-app "${TPL_DIST}"
+    #git clone --depth 1 https://github.com/djklu31/streambox-templates-app "${TPL_DIST}"
+    git clone --depth 1 https://github.com/TaylorMonacelli/streambox-templates-app.git "${TPL_DIST}"
 fi
 
 if [ ! -d "${TMP_LGN_DIST}" ]; then
