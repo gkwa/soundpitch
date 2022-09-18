@@ -13,35 +13,32 @@ HTMLDIR=${TMPDIR}/
 # pushd .
 
 if [ ! -e ${HTMLDIR} ]; then
-	mkdir -p ${HTMLDIR}
+    mkdir -p ${HTMLDIR}
 fi
 
 if [ ! -e ~/rpmbuild ]; then
-	rpmdev-setuptree
+    rpmdev-setuptree
 fi
 
-cp -pr ${TMP_GIT_REP}/dist/images     ${HTMLDIR}
-cp -pr ${TMP_GIT_REP}/dist/assets     ${HTMLDIR}
-cp -p  ${TMP_GIT_REP}/dist/index.html ${HTMLDIR}/index.react.html
-
+cp -pr ${TMP_GIT_REP}/dist/images ${HTMLDIR}
+cp -pr ${TMP_GIT_REP}/dist/assets ${HTMLDIR}
+cp -p ${TMP_GIT_REP}/dist/index.html ${HTMLDIR}/index.react.html
 
 cd ${HTMLDIR}
 tar cvfz ~/rpmbuild/SOURCES/streambox-react-webui.tgz *
 
-
-
 if [ -d "${TMPDIR}" ]; then
-	rm -rf ${TMPDIR}
+    rm -rf ${TMPDIR}
 fi
 
 cd ${PWD0}
 
 if [ -e ~/rpmbuild/SPECS/reactwebui.spec ]; then
-	rpmbuild -bb ~/rpmbuild/SPECS/reactwebui.spec
+    rpmbuild -bb ~/rpmbuild/SPECS/reactwebui.spec
 else
-	echo "SPEC file not exists"
+    echo "SPEC file not exists"
 fi
 
-for rpm in `find /root/rpmbuild/RPMS -type f`; do 
+for rpm in $(find /root/rpmbuild/RPMS -type f); do
     cp $rpm /dist
 done

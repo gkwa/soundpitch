@@ -2,14 +2,14 @@ version: '3.9'
 
 services:
   rpmbuilder:
-    command: bash -c ./make_react_webui_rpm.sh
+    command: bash -c './make_react_webui_rpm.sh; cd /dist; bash /src/test.sh'
     build: redhat
     image: reactrpm
     volumes:
     - ./redhat:/src
     - .:/dist
-  deb-builder-sbx:
-    command: bash -c ./make_react_webui_deb.sh
+  debbuilder:
+    command: bash -c 'bash ./make_react_webui_deb.sh; cd /dist; bash /tmp/test.sh'
     build: debian
     image: reactdeb
     volumes:

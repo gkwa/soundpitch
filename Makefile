@@ -1,9 +1,14 @@
 build:
+	docker compose build
 	docker compose up
-	find . -type f \( -iname '*.deb' -o -iname '*.rpm' \)
+	ls *.deb *.rpm
+
+cleanbuild:
+	docker compose build --no-cache
+	docker compose up
+	ls *.deb *.rpm
 
 clean:
-	rm -f *.deb
-	rm -f *.rpm
+	rm -f *.deb *.rpm
 	docker compose down --remove-orphans
 
