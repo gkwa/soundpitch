@@ -9,7 +9,7 @@ Packager    : info@streambox.com
 URL         : https://www.streambox.com
 Summary     : Streambox React-based webUI
 
-Source0 : streambox-react-webui.tgz
+Source0: streambox-react-webui.tgz
 
 %description
 	React-based webUI for Streambox Encoder/Decoder
