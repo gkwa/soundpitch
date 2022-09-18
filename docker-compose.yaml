@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   rpmbuilder:
-    command: bash -c './make_react_webui_rpm.sh'
+    command: bash -c './make_react_webui_rpm.sh; cd /dist; bash /src/test.sh'
     build: redhat
     image: reactrpm
     volumes:
