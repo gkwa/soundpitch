@@ -1,5 +1,5 @@
 Name        : streambox_react_webui
-Version     : 0.0.3
+Version     : 0.0.0
 Release     : 1
 BuildArch   : noarch
 Group       : Applications/Multimedia
@@ -15,63 +15,33 @@ Source0: streambox-react-webui.tgz
 	React-based webUI for Streambox Encoder/Decoder
 	w/ REST API
 
-
 %prep
-
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
 
-
-
-# %setup -q
-
 %build
-
 echo Building %{name}-%{version}-%{release}
 mkdir -p "%{buildroot}"
 
-
-## %  configure
-
-
 %install
-
 install -d -m 0755 %{buildroot}/var/www/html/
 tar -x -p -z -f %{SOURCE0}  -C %{buildroot}/var/www/html/
-
-
-#  %clean
-#  [ ${RPM_BUILD_ROOT} != "/" ] && rm -rf ${RPM_BUILD_ROOT}
-
-# %check
-
 
 %pre
 
 %post
-
 if [ -e /var/www/html/index.html ]; then
 	DATET=$(date +%y%m%d_%H%M)
 	mv /var/www/html/index.html /var/www/html/index.${DATET}.html
 fi
 # cp -p /var/www/html/index.react.html /var/www/html/index.html
 
-
 %preun
 
 %postun
 
-
-
 %files
 
 %attr(-,root,root) /var/www/html/*
-
-
-## %license LICENSE
-
-## %doc
-
-
 
 %changelog
 

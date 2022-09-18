@@ -3,6 +3,8 @@
 cd /tmp/ || exit
 
 DIST_DIR=$(mktemp -d)
+TMPDIR=$(mktemp -d)
+HTMLDIR=${TMPDIR}/
 LGN_DIST="${DIST_DIR}"/sbphplogin-reactapp-main
 TPL_DIST="${DIST_DIR}"/streambox-templates-app
 
@@ -14,9 +16,6 @@ if [ ! -d "${TMP_LGN_DIST}" ]; then
     git clone --depth 1 https://github.com/djklu31/sbphplogin-reactapp.git "${LGN_DIST}"
 fi
 
-TMPDIR=$(mktemp -d)
-HTMLDIR=${TMPDIR}/
-
 if [ ! -e "${HTMLDIR}" ]; then
     mkdir -p "${HTMLDIR}"
 fi
@@ -26,7 +25,7 @@ if [ ! -e ~/rpmbuild ]; then
 fi
 
 mkdir -p "${DIST_DIR}"/var/www/html/sbuiauth/
-cp "${LGN_DIST}"/* "${DIST_DIR}"/var/www/sbuiauth/
+cp "${LGN_DIST}"/* "${DIST_DIR}"/var/www/html/sbuiauth/
 
 cp -pr ${TMP_GIT_REP}/dist/images "${HTMLDIR}"
 cp -pr ${TMP_GIT_REP}/dist/assets "${HTMLDIR}"
@@ -35,7 +34,7 @@ cp -pr ${TMP_GIT_REP}/dist/assets "${HTMLDIR}"
 cd "${HTMLDIR}" || exit
 tar cvfz ~/rpmbuild/SOURCES/streambox-react-webui.tgz ./*
 
-cd /tmp || exit
+cd /tmp/ || exit
 
 if [ -d "${TMPDIR}" ]; then
     rm -rf "${TMPDIR}"
@@ -47,4 +46,4 @@ else
     echo "SPEC file not exists"
 fi
 
-find /root/rpmbuild/RPMS -type f -exec cp {} /dist \;
+find /root/rpmbuild/RPMS -type f -iname '*.rpm' -exec cp {} /dist \;

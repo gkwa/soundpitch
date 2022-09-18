@@ -15,12 +15,10 @@ tar -x -z -f react-deb-ctl.tgz -C "${DIST_DIR}"
 
 #git clone https://github.com/djklu31/streambox-templates-app.git /tmp/streambox-templates-app
 #git clone https://github.com/djklu31/sbphplogin-reactapp.git /tmp/sbphplogin-reactapp
-#if false; then
-curl -sLo sb-tpl-app.zip \
-    https://github.com/djklu31/streambox-templates-app/archive/refs/heads/master.zip
 
-curl -sLo sb-login-app.zip \
-    https://github.com/djklu31/sbphplogin-reactapp/archive/refs/heads/master.zip
+#if false; then
+curl -sLo sb-tpl-app.zip https://github.com/djklu31/streambox-templates-app/archive/refs/heads/master.zip
+curl -sLo sb-login-app.zip https://github.com/djklu31/sbphplogin-reactapp/archive/refs/heads/master.zip
 #fi
 
 unzip sb-tpl-app.zip
