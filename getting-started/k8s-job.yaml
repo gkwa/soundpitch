@@ -3,7 +3,7 @@ kind: Job
 metadata:
   name: rpmjob
 spec:
-  ttlSecondsAfterFinished: 20
+  ttlSecondsAfterFinished: 5
   template:
     metadata:
       name: rpmjob
@@ -21,7 +21,7 @@ kind: Job
 metadata:
   name: debjob
 spec:
-  ttlSecondsAfterFinished: 20
+  ttlSecondsAfterFinished: 5
   template:
     metadata:
       name: debjob

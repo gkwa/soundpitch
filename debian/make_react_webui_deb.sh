@@ -67,6 +67,7 @@ cp ${TPL_DIST}/dist/templates/* ${DIST_DIR}/var/local/WebData/templates/
 
 dpkg -b ${DIST_DIR} .
 
+mv *.deb /dist
 
 rm -r ${TPL_DIST}
 rm -r ${LGN_DIST}

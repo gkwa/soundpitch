@@ -68,9 +68,17 @@ cp ${TPL_DIST}/dist/templates/* ${DIST_DIR}/var/local/WebData/templates/
 dpkg -b ${DIST_DIR} .
 
 
+pwd
+ls -la
+
+
 rm -r ${TPL_DIST}
 rm -r ${LGN_DIST}
 rm -r ${DIST_DIR}
 rm sb-tpl-app.zip
 rm sb-login-app.zip
 
+
+ls -la
+
+sleep 120

@@ -1,15 +1,17 @@
-version: '3.7'
+version: '3.9'
 
 services:
-  rpm-builder-sbx:
-    command: sleep 1h
+  rpmbuilder:
+    command: bash -c ./make_react_webui_rpm.sh
     build: redhat
-    image: taylorm/sbx-react-ui-rpm
+    image: reactrpm
     volumes:
-    - .:/src/
+    - ./redhat:/src
+    - .:/dist
   deb-builder-sbx:
-    command: sleep 1h
+    command: bash -c ./make_react_webui_deb.sh
     build: debian
-    image: taylorm/sbx-react-ui-deb
+    image: reactdeb
     volumes:
-    - .:/tmp/
+    - ./debian:/tmp/
+    - .:/dist

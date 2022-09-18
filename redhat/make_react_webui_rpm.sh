@@ -3,7 +3,7 @@
 TMP_GIT_REP=/tmp/streambox-templates-app
 
 if [ ! -d ${TMP_GIT_REP} ]; then
-    git clone https://github.com/djklu31/streambox-templates-app ${TMP_GIT_REP}
+    git clone --depth 1 https://github.com/djklu31/streambox-templates-app ${TMP_GIT_REP}
 fi
 
 #PWD0=$(pwd)
@@ -29,6 +29,7 @@ cd ${HTMLDIR}
 tar cvfz ~/rpmbuild/SOURCES/streambox-react-webui.tgz *
 
 
+
 if [ -d "${TMPDIR}" ]; then
 	rm -rf ${TMPDIR}
 fi
@@ -40,3 +41,7 @@ if [ -e ~/rpmbuild/SPECS/reactwebui.spec ]; then
 else
 	echo "SPEC file not exists"
 fi
+
+for rpm in `find /root/rpmbuild/RPMS -type f`; do 
+    cp $rpm /dist
+done

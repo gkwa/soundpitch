@@ -20,14 +20,14 @@ if [ ! -e ~/rpmbuild ]; then
 	rpmdev-setuptree
 fi
 
+mkdir -p ${HTMLDIR}/sbuiapp
 cp -pr ${TMP_GIT_REP}/dist/images     ${HTMLDIR}
 cp -pr ${TMP_GIT_REP}/dist/assets     ${HTMLDIR}
-cp -p  ${TMP_GIT_REP}/dist/index.html ${HTMLDIR}/index.react.html
+cp -p  ${TMP_GIT_REP}/dist/index.html ${HTMLDIR}/sbuiapp/
 
 
 cd ${HTMLDIR}
 tar cvfz ~/rpmbuild/SOURCES/streambox-react-webui.tgz *
-
 
 if [ -d "${TMPDIR}" ]; then
 	rm -rf ${TMPDIR}
@@ -35,8 +35,11 @@ fi
 
 cd ${PWD0}
 
+
 if [ -e ~/rpmbuild/SPECS/reactwebui.spec ]; then
 	rpmbuild -bb ~/rpmbuild/SPECS/reactwebui.spec
 else
 	echo "SPEC file not exists"
 fi
+
+sleep 20
