@@ -23,8 +23,8 @@ echo Building %{name}-%{version}-%{release}
 mkdir -p "%{buildroot}"
 
 %install
-install -d -m 0755 %{buildroot}/var/www/html/
-tar -x -p -z -f %{SOURCE0}  -C %{buildroot}/var/www/html/
+install -d -m 0755 %{buildroot}
+tar -x -p -z -f %{SOURCE0} -C %{buildroot}
 
 %pre
 
@@ -33,7 +33,6 @@ if [ -e /var/www/html/index.html ]; then
 	DATET=$(date +%y%m%d_%H%M)
 	mv /var/www/html/index.html /var/www/html/index.${DATET}.html
 fi
-# cp -p /var/www/html/index.react.html /var/www/html/index.html
 
 %preun
 
