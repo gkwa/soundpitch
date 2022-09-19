@@ -26,7 +26,7 @@ mkdir -p "${DIST_DIR}"/var/www/html/assets/
 cp "${TPL_DIST}"/dist/assets/* "${DIST_DIR}"/var/www/html/assets/
 
 mkdir -p "${DIST_DIR}"/var/www/html/sbuiapp/
-cp "${TPL_DIST}"/index.html "${DIST_DIR}"/var/www/html/sbuiapp/
+cp "${TPL_DIST}"/dist/index.html "${DIST_DIR}"/var/www/html/sbuiapp/
 
 mkdir -p "${DIST_DIR}"/var/local/WebData/templates/
 cp "${TPL_DIST}"/dist/templates/* "${DIST_DIR}"/var/local/WebData/templates/
