@@ -39,6 +39,7 @@ fi
 %postun
 
 %files
+/var/local/WebData/templates/Colorful
 
 %attr(-,root,root) /var/www/html/*
 
