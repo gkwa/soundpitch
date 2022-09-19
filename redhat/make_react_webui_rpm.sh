@@ -32,13 +32,11 @@ cp "${TPL_DIST}/dist/assets/"*     "${HTML_DIR}/assets/"
 cp "${TPL_DIST}/dist/index.html"   "${HTML_DIR}/sbuiapp/"
 
 cd "${DIST_DIR}" || exit
-
 tar cfz ~/rpmbuild/SOURCES/streambox-react-webui.tgz ./*
 
-if [ -e ~/rpmbuild/SPECS/reactwebui.spec ]; then
-    rpmbuild -bb ~/rpmbuild/SPECS/reactwebui.spec
-else
+if [ ! -e ~/rpmbuild/SPECS/reactwebui.spec ]; then
     echo "SPEC file not exists"
+    exit 1
 fi
 
-find /root/rpmbuild/RPMS -type f -iname '*.rpm' -exec cp {} /dist \;
+rpmbuild -bb ~/rpmbuild/SPECS/reactwebui.spec

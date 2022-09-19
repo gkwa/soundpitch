@@ -7,6 +7,7 @@ services:
     - -c
     - |
       ./make_react_webui_rpm.sh
+      find /root/rpmbuild/RPMS -type f -iname '*.rpm' -exec cp {} /dist \;
       cd /dist
       /src/test.sh
     build: redhat
@@ -20,6 +21,7 @@ services:
     - -c 
     - |
       ./make_react_webui_deb.sh
+      find /tmp -type f -iname '*.deb' -exec mv {} /dist \;
       cd /dist
       /tmp/test.sh
     build: debian
