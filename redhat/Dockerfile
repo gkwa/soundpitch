@@ -1,7 +1,8 @@
-FROM centos:7
+FROM fedora
 
 WORKDIR /src
 
+RUN yum makecache
 RUN yum -y install \
   bash \
   coreutils \
@@ -16,7 +17,9 @@ RUN yum -y install \
   rpm-build \
   rpm-devel \
   rpmdevtools \
-  rpmlint
+  rpmlint \
+  tito \
+  tree
 RUN pip3 install bump2version
 
 RUN curl -sLo /tmp/ripgrep.sh https://gist.githubusercontent.com/TaylorMonacelli/518fc257340d486a2b403b490f535bcf/raw/aa7dae078c0dad66f84349a491fea44ab6bb1a03/ripgrep_linux.sh
