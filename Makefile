@@ -10,6 +10,7 @@ clean:
 	docker compose down --remove-orphans
 
 verycleanbuild:
+	docker compose down --remove-orphans
 	docker compose build --no-cache
 	docker compose up
 	du -sh *.deb *.rpm
