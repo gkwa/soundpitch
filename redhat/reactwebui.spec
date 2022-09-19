@@ -9,6 +9,9 @@ Packager    : info@streambox.com
 URL         : https://www.streambox.com
 Summary     : Streambox React-based webUI
 
+%define _source_payload w0.gzdio
+%define _binary_payload w0.gzdio
+
 Source0: streambox-react-webui.tgz
 
 %description
