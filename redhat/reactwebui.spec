@@ -39,15 +39,15 @@ fi
 %postun
 
 %files
-/var/local/WebData/templates/Colorful Dev Template
-/var/local/WebData/templates/Colorful Prod Template (Default)
-/var/local/WebData/templates/Dark Dev Template
-/var/local/WebData/templates/Dark Prod Template (Default)
-/var/local/WebData/templates/Dev Audio Levels
-/var/local/WebData/templates/Light Dev Template
-/var/local/WebData/templates/Light Prod Template (Default)
-/var/local/WebData/templates/Multiplex Light Dev Template
-/var/local/WebData/templates/Multiplex Production Light
+"/var/local/WebData/templates/Colorful Dev Template"
+"/var/local/WebData/templates/Colorful Prod Template (Default)"
+"/var/local/WebData/templates/Dark Dev Template"
+"/var/local/WebData/templates/Dark Prod Template (Default)"
+"/var/local/WebData/templates/Dev Audio Levels"
+"/var/local/WebData/templates/Light Dev Template"
+"/var/local/WebData/templates/Light Prod Template (Default)"
+"/var/local/WebData/templates/Multiplex Light Dev Template"
+"/var/local/WebData/templates/Multiplex Production Light"
 
 %attr(-,root,root) /var/www/html/*
 
