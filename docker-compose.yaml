@@ -11,7 +11,7 @@ services:
       cd /dist
       /src/test.sh
     build: redhat
-    image: reactrpm
+    image: taylorm/rpmbuilder
     volumes:
     - ./redhat:/src
     - .:/dist
@@ -25,7 +25,7 @@ services:
       cd /dist
       /tmp/test.sh
     build: debian
-    image: reactdeb
+    image: taylorm/debbuilder
     volumes:
     - ./debian:/tmp/
     - .:/dist
