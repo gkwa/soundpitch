@@ -2,30 +2,10 @@ version: '3.9'
 
 services:
   rpmbuilder:
-    command:
-    - bash
-    - -c
-    - |
-      ./make_react_webui_rpm.sh
-      find /root/rpmbuild/RPMS -type f -iname '*.rpm' -exec cp {} /dist \;
-      cd /dist
-      /src/test.sh
-    build: redhat
+    build:
+      dockerfile: Dockerfile.redhat
     image: taylorm/rpmbuilder
-    volumes:
-    - ./redhat:/src
-    - .:/dist
   debbuilder:
-    command:
-    - bash
-    - -c 
-    - |
-      ./make_react_webui_deb.sh
-      find /tmp -type f -iname '*.deb' -exec mv {} /dist \;
-      cd /dist
-      /tmp/test.sh
-    build: debian
+    build:
+      dockerfile: Dockerfile.debian
     image: taylorm/debbuilder
-    volumes:
-    - ./debian:/tmp/
-    - .:/dist
