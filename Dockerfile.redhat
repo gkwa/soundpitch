@@ -21,7 +21,7 @@ RUN yum -y install \
   tito \
   tree
 
-RUN bash -c "$(curl -fsSL https://gist.githubusercontent.com/TaylorMonacelli/518fc257340d486a2b403b490f535bcf/raw/aa7dae078c0dad66f84349a491fea44ab6bb1a03/ripgrep_linux.sh)"
+RUN bash -c "$(curl -fsSL https://gist.githubusercontent.com/TaylorMonacelli/518fc257340d486a2b403b490f535bcf/raw/110f30a818b496aa7c68d65c3fe91ebedab871c6/ripgrep_linux.sh)"
 
 RUN rpmdev-setuptree
 
